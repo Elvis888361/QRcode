@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script type="text/javascript" src="qrcode.js">
+</script>
+    <script type="text/javascript" src="html5-qrcode.js">
+</script>
+    <style type="text/css" media="screen">
+      body { text-align:center; }
+    </style>
+  </head>
+  <body>
+    <p>
+    <form name="QRform" id="QRform" action="auth.php" method="post">
+	<label for ="FIRST_NAME">FIRST NAME </label>
+	  <input type = "string" name="FIRST_NAME" onkeyup='updateQRCode(this.value)' onclick="this.focus();this.select();"required/>
+  </p>
+  <p>
+	<label for ="LAST_NAME">LAST NAME </label>
+	   <input type = "string" name="LAST_NAME"onkeyup='updateQRCode(this.value)' onclick="this.focus();this.select();" required/>
+	  </p>
+    <p>
+	 <label for ="EMAIL_ADDRESS">EMAIL ADDRESS </label>
+	  <input type = "string" name="EMAIL_ADDRESS"onkeyup='updateQRCode(this.value)' onclick="this.focus();this.select();" required/>
+	</p>
+  <p>
+    <label for ="NATIONAL_ID_NO">NATIONAL_ID_NO</label>
+    <input type="id" name="NATIONAL_ID_NO"onkeyup='updateQRCode(this.value)' onclick="this.focus();this.select();" required>
+  </p>
+  <P> <p>
+    <label for ="Birth_place">birth place</label>
+    <input type="string" name="BIRTH_PLACE"onkeyup='updateQRCode(this.value)' onclick="this.focus();this.select();" required>
+  </p>
+	<p>
+	<label for="PHONE">PHONE</label>
+	  <input type="phone" name="phone"onkeyup='updateQRCode(this.value)' onclick="this.focus();this.select();" required/>
+	  </p>
+	<label for ="PASSWORD">PASSWORD </label>
+	  <input type = "password" name="PASSWORD" onkeyup='updateQRCode(this.value)' onclick="this.focus();this.select();" required/>
+  <br/>
+    </p>
+	<label for="gender" class="radio-inline"><input type="radio" name="gender" value="m" id="Male" onclick='updateQRCode(this.value)' onclick="this.focus();this.select();" >Male</label>
+   <label for="gender" class="radio-inline"><input type="radio" name="gender" value="f" id="female" onclick='updateQRCode(this.value)' onclick="this.focus();this.select();" >female<br>
+   </label>
+   <input type="submit"value= "submit" name="submit">
+    </form onkeyup='updateQRCode(this.value)' onclick="this.focus();this.select();">
+   
+    <!-- This is where our QRCode will appear in. -->
+	    <div id="qrcode"></div>
+    
+<script type="text/javascript">
+  function updateQRCode(text) {
+
+    var element = document.getElementById("qrcode");
+
+    var bodyElement = document.body;
+    if(element.lastChild)
+      element.replaceChild(showQRCode(text), element.lastChild);
+    else
+      element.appendChild(showQRCode(text));
+
+  }
+
+  updateQRCode('www.tutorialspoint.com');
+</script>
+<a href="final_qr_code.html"\>click here to get your code</a>
+  </body>
+</html>
